@@ -2,13 +2,25 @@ import React, { Component } from 'react';
 
 class Band extends Component {
 
-  render() {
+handleOnClick = () => {
+
+  this.props.deleteBand(this.props.band.id)
+}
+
+render() {
     return(
       <div>
-        Band Component
+        <li>{this.props.band.name}</li>
+        <button onClick={this.handleOnClick}>Delete Band</button>
       </div>
     );
   }
 };
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     deleteBand: (id) => dispatch({type: 'DELETE_BAND', id})
+//   }
+// }
 
 export default Band;
